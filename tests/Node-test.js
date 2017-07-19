@@ -5,22 +5,22 @@ describe('Node functionality', () => {
   let node;
 
   beforeEach(() => {
-    node = new Node('pizza')
+    node = new Node()
   })
 
-  it.skip('should be a thing', () => {
+  it('should be a thing', () => {
     expect(node).to.exist
   })
 
-  it.skip('should start out with no letters', () => {
+  it('should start out with no letters', () => {
     expect(node.letter).to.equal(null)
   })
 
-  it.skip('should not start out as a word', () => {
+  it('should not start out as a word', () => {
     expect(node.isWord).to.equal(false);
   })
 
-  it.skip('should have no children', () => {
+  it('should have no children', () => {
     expect(node.children).to.deep.equal({});
   })
 })
