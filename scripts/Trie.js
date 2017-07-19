@@ -4,6 +4,7 @@ export default class Trie {
   constructor(node) {
     this.root = null
     this.wordCount = 0
+    this.wordFreq = []
   }
 
   insert(word) {
@@ -27,12 +28,38 @@ export default class Trie {
       currentNode.isWord = true
       this.wordCount++
     }
-    console.log(JSON.stringify(this.root, null, 4))
+    // console.log(JSON.stringify(this.root, null, 4))
   }
 
   count() {
     return this.wordCount
   }
+
+    select(word) {
+      let wordObj = {
+        word: word,
+        freq: 1
+      }
+
+      let foundWord = false
+
+      if (this.wordFreq.length === 0) {
+        this.wordFreq.push(wordObj)
+        foundWord = true
+      } else if (this.wordFreq.length > 0) {
+        this.wordFreq.forEach((obj) => {
+          if (word === obj.word) {
+            foundWord = true
+            obj.freq += 1
+          }
+        })
+      }
+
+      if (foundWord === false && this.wordFreq.length > 0) {
+        this.wordFreq.push(wordObj)
+      }
+
+    }
 
   suggest(word) {
     let wordAsArray = [...word];
@@ -65,14 +92,25 @@ export default class Trie {
     if (currNode) {
       traverseTheTrie(word, currNode);
     }
+    let sortedArray = []
+    this.wordFreq.forEach((wordObj) => {
+      suggestionsArray.forEach((arrayWord, i) => {
+        if (wordObj.word === arrayWord) {
+          sortedArray.push(wordObj)
+          suggestionsArray.splice(i, 1)
+        }
+      })
+    })
+    sortedArray.sort((a,b) => {
+      return a.freq - b.freq
+    })
+    sortedArray.forEach((obj) => {
+      suggestionsArray.unshift(obj.word)
+    })
 
-    //console.log('suggestionsArray:', suggestionsArray);
     return suggestionsArray;
   }
 
-  select() {
-
-  }
 
   populate(dictionary) {
     dictionary.forEach(word => {
