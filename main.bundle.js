@@ -107,8 +107,8 @@ function suggestWord() {
   var selectedWord = $(this).text();
   trie.select(selectedWord);
   clearSuggestBox();
-  searchWord();
   $wordInput.val(selectedWord);
+  searchWord();
   $wordInput.focus();
 }
 

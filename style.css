@@ -31,7 +31,7 @@ main {
 input {
   height: 50px;
   padding-left: 15px;
-  width: 50%;
+  width: 70%;
   border: none;
   border-radius: 5px 0 0 0px;
   color: #507F7D;
@@ -84,11 +84,11 @@ ul {
 }
 
 li {
-  padding-left: 5px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 5px 0;
+  padding-left: 5px;
   width: 100%;
   color: rgba(0, 0, 0, 0.5);
 }
