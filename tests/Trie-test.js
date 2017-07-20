@@ -175,7 +175,7 @@ describe('Trie functionality', () => {
     //   completeMe = new Trie();
     // })
 
-    it.only('should be able to select order of words returned by suggest', () => {
+    it('should be able to select order of words returned by suggest', () => {
       let completeMe = new Trie()
       completeMe.insert('app')
       completeMe.insert('apple')

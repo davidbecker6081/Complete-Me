@@ -2,7 +2,7 @@
   "name": "TDD",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./scripts/index.js",
   "directories": {
     "test": "tests"
   },

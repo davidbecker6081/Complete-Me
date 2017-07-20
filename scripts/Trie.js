@@ -28,7 +28,6 @@ export default class Trie {
       currentNode.isWord = true
       this.wordCount++
     }
-    // console.log(JSON.stringify(this.root, null, 4))
   }
 
   count() {
@@ -65,17 +64,15 @@ export default class Trie {
     let wordAsArray = [...word];
     let currNode = this.root;
     let suggestionsArray = [];
+    let sortedArray = []
 
-    for (let i = 0; i < wordAsArray.length; i++) {
+      for (let i = 0; i < wordAsArray.length; i++) {
       currNode = currNode.children[wordAsArray[i]]
-      //console.log('CURR NODE:', currNode);
-    }
+      }
 
-    // currNode now refers to the last leter in our word
     const traverseTheTrie = (word, currNode) => {
       let keys = Object.keys(currNode.children);
       for (let k = 0; k < keys.length; k++) {
-        // console.log('CURRENT NODE:', currNode, 'KEYS:', keys);
         const child = currNode.children[keys[k]];
         let newString = word + child.letter;
         if (child.isWord) {
@@ -92,7 +89,7 @@ export default class Trie {
     if (currNode) {
       traverseTheTrie(word, currNode);
     }
-    let sortedArray = []
+
     this.wordFreq.forEach((wordObj) => {
       suggestionsArray.forEach((arrayWord, i) => {
         if (wordObj.word === arrayWord) {
@@ -101,9 +98,11 @@ export default class Trie {
         }
       })
     })
+
     sortedArray.sort((a,b) => {
       return a.freq - b.freq
     })
+
     sortedArray.forEach((obj) => {
       suggestionsArray.unshift(obj.word)
     })
