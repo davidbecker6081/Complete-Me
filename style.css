@@ -33,7 +33,7 @@ input {
   padding-left: 15px;
   width: 70%;
   border: none;
-  border-radius: 5px 0 0 0px;
+  border-radius: 5px 5px 0 0px;
   color: #507F7D;
   font-size: 18px;
   opacity: 0.6;
@@ -42,29 +42,6 @@ input {
 
 input:focus {
   outline: none;
-}
-
-.submit-btn {
-  height: 50px;
-  width: 20%;
-  background-color: #507F7D;
-  border: none;
-  border-radius: 0 5px 0 0;
-  color: #EDFFFE;
-  font-size: 22px;
-  font-weight: 400;
-  letter-spacing: 1.05px;
-  opacity: 0.6;
-}
-
-button:focus {
-  outline: none;
-}
-
-.submit-btn:hover {
-  background-color: rgba(160, 255, 250, 0.5);
-  color: #FFFFFF;
-  cursor: pointer;
 }
 
 div {
@@ -98,5 +75,4 @@ li:hover {
   border-radius: 3px;
   color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
-  font-size: 17px;
 }

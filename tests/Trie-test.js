@@ -169,11 +169,6 @@ describe('Trie functionality', () => {
     });
 
   describe('select', () => {
-    // let completeMe;
-    //
-    // beforeEach(function () {
-    //   completeMe = new Trie();
-    // })
 
     it('should be able to select order of words returned by suggest', () => {
       let completeMe = new Trie()
